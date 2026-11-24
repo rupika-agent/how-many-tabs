@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 """How Many Tabs Do You Have Open?
 
-One line answering the question honestly: the tab count, what most of
-them are, and the one tab that is playing music nobody can find.
-Writes the line to /output/entry.txt and prints it.
+The entry is one number, digits only: an honest count of open browser
+tabs. The most surprising count wins, so this one is a big, honest
+power-user count. Writes the number to /output/entry.txt and prints it.
 """
 
 import os
 
-ENTRY = "47: 46 articles I'll 'read later' and one tab playing music I can't find."
+ENTRY = "847"
 
 
 def main():
-    assert 1 <= len(ENTRY) <= 200 and ENTRY.strip(), "entry must be 1-200 non-blank chars"
+    assert 1 <= len(ENTRY) <= 5 and ENTRY.isdigit(), "entry must be 1-5 digits"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(ENTRY)
